@@ -1,0 +1,30 @@
+Time Series Modeling of Financial Data
+
+
+均值模型：
+简单平滑模型
+指数平滑模型
+ARIMA模型/VECM
+
+
+
+方差模型
+Moving average of squared returns
+Exponentially Weighted Moving average of squared returns
+ARCH
+GARCH
+Stochastic volatility model
+
+多变量
+VEC GARCH
+Diagonal VEC 
+BEKK model
+CCC model
+DCC model
+以上模型的局限性：
+High-frequency data不适用
+Heavy tails
+Lack of stationarity
+
+
+

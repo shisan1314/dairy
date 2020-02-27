@@ -1,0 +1,25 @@
+robust portfolio optimization
+
+
+θ^ 估计的不准确常常是导致portfolio optimization模型失效的主因。
+
+robust optimization三种方式
+stochastic robust optimization(只考虑平均情况)
+worst-case robust optimization（只考虑最坏情况）
+chance robust optimization.（折中）
+
+
+robust portfolio optimization conquer against
+estimation errors of the parameters μ and Σ.
+
+
+robust maximum return optimization :with mean under elliptical uncertainty, from LP to SOCP
+
+robust minimum variance optimization:with covariance under convex uncertainty set, from QP to SOCP
+robust markowitz optimization: with mean and covariance under box or ellipse uncertainty, model will both become SDP
+
+特例：Variance Uncertainty based on Factor Model
+
+robust sharp ratio optimization:model will both become SDP
+
+

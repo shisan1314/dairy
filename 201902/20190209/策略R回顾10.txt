@@ -1,0 +1,18 @@
+risk parity portfolio design
+
+
+模型的好处
+1.diversifes the risk, instead of the capital, among the assets
+2.less sensitive to parameter estimation errors
+
+
+Idea: equalize the risks contributions:
+
+
+
+模型公式有很多中表达形式
+求解算法：SCA，Successive Convex Approximation(和MM算法类似)
+model becomes QP from noncovex
+
+
+

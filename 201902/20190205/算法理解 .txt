@@ -1,0 +1,13 @@
+GMM（gaussian mixture model）聚类 (EM算法) 和k-means类似，或者说k-means是GMM的一种特殊形式
+
+https://zhuanlan.zhihu.com/p/31103654
+https://zhuanlan.zhihu.com/p/40991784
+
+
+HMM(Hidden Markov Model)时间序列预测算法
+1.给定模型参数和观测序列，求概率
+2.给定观测序列，求模型参数
+3.给定模型参数，求最可能出现的观测序列
+
+https://www.cnblogs.com/pinard/p/6955871.html
+

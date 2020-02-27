@@ -1,0 +1,18 @@
+estimate mean & covariance with prior info(shrinkage)
+
+
+In the small sample regime, the main source of error comes from the variance of the estimator，lower estimation errors can be achieved by allowing some bias in exchange of a smaller variance. This can be implemented by shrinking the estimator to some known target values.
+
+
+θ^sh = (1 ? ρ) θ^ + ρθtarget
+
+ρ and θtarget 是主观的
+
+shrinkage factor ρ is critical for the success of the
+shrinkage estimator， even if θtarget is uninformative
+
+可以使用交叉验证或者随机矩阵论(不是很合适有限制)来确定ρ
+
+
+实际应用实例Black-Litterman Model
+加权最小二乘方法求解 or Bayesian Approach

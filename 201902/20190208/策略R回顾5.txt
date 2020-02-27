@@ -1,0 +1,41 @@
+factor model for asset returns
+
+宏观经济因子
+market neutral：收益不随市场变动而变动
+
+robust regression techniques to estimate βi, σi^2, and σM^2
+
+factor model not constant over time, obtaining time-varying βi;t, σi;t^2, and σM;t^2
+
+例如βi;t can be estimated via rolling regression or Kalman filter techniques
+σi;t^2 and σM ;t^2 (i.e., conditional heteroskedasticity) can be captured via GARCH models or exponential weights
+
+
+多因子模型的因子协方差阵的估计是有偏的，需要bassel correction
+
+
+
+
+基本面因子
+fama-french模型
+因子的实现的估计是通过：Define the common factor realizations with the return of K of such hedge portfolios corresponding to the K fundamental asset attributes
+然后才是因子载荷的估计
+
+
+
+
+统计因子模型
+both the common-factors fftg and the factor loadings B are unknown
+
+PCA or factor analysis method
+
+factor analysis：
+1.Employ the Expectation-Maximization (EM) algorithm to compute α^,B^, and Ψ^ 
+2.Estimate factor realization fftg using, for example, the GLS estimator
+3.The number of factors K can be estimated with a variety of methods such as the likelihood ratio (LR) test, Akaike information criterion (AIC)
+
+
+PCA method
+从一堆变量中提炼出代表最多信息的少数正交变量（光谱/特征值分解）
+pca分解之后得到的方差估计不是对称矩阵是因为没有做mean standardization
+

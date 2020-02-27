@@ -1,0 +1,31 @@
+肥尾和离群值下的均值和协方差正则强估计
+
+
+
+强协方差矩阵估计量
+Robust M-estimator
+Tyler’s M-estimator for Elliptical Distributions（对离群值很有效，少受影响），缺点是需要mean的信息，样本要大，没有包含先验信息
+
+强均值协方差阵估计量
+Joint Mean-Covariance Estimation（对离群值很有效，少受影响）
+思想：MLE of heavy-tailed distributions.
+(解决了对mean的需求问题)
+
+
+小样本问题下的估计
+【Diagonal loading(在协方差估计量的迭代过程中给对角线元素+p*1，p有专门的确定方法)
+Penalized or regularized loss function.
+例子：Wiesel’s penalty ，KL-divergence
+
+
+MM算法：用一系列凸函数来代替原函数以寻找极大or极小值
+Modified Algorithm for Wiesel’s Shrinkage
+Estimator（利用mm算法）
+】这些都是mean依赖的covariance估计算法
+
+
+下面是unknown mean的算法
+shrinkage estimator for joint mean-covariance estimation
+with target (t; T).
+
+

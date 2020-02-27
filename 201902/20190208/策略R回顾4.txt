@@ -1,0 +1,17 @@
+data cleaning：outlier detection and imputation of missing value
+
+
+
+离群值检测应用
+Supervised scenario：unbalanced data is dangerous
+
+
+Outlier correction: Trimming and Winsorization
+
+统计方法检测离群值：depth-based、distance-based，density-based
+
+
+缺失值归因
+A sound imputation method should preserve the statistics of the observed values.通常的方法做不到
+
+R中有一些包可以做到单变量/多变量连续值持续缺失的插补，并且满足上面的要求。python应该也有，可以搜一下

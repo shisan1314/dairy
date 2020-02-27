@@ -1,0 +1,35 @@
+投资组合优化（可做策略参考）
+
+
+金融数据的几大特征
+低频（周月）：波动聚集 不对称
+中频（日）：厚尾+低频缺点
+高频（分钟tick）：基本都是噪声，没什么规律
+
+
+对回报建模
+iid model
+factor model
+
+
+投资组合最优化
+Markowitz model： convex QP 
+Global Minimum Variance Portfolio：convex QP 
+Sharpe ratio maximization model：not convex，but quasi-convex, SOCP solver
+only one portfolio on the Pareto-optimal frontier achieves the maximum Sharpe ratio    
+
+现实限制：budget，leverage，turnover，max position， sparsity
+
+相关模型的缺点：
+variance is not a good risk measurement， VaR and CVaR is alternative
+highly sensitive to parameter estimation：mean and covariance matrix， robust optimization is alternative
+ignores the risk diversification: risk-parity portfolio is alternative
+
+
+
+python对应的包
+quantmod ：A powerful financial charting library based on R's Quantmod.
+talib：技术指标
+vnpy：回测
+zipline/quantopian：回测
+

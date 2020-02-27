@@ -1,0 +1,15 @@
+Portfolio Optimization with Alternative Risk Measures
+
+
+consider more meaningful measures for risk：
+downside risk(DR), Value-at-Risk(VaR), Conditional VaR(CVaR) or Expected Shortfall (ES), and drawdown (DD)
+
+
+mean-DR portfolio: under semivariance, convex QP
+mean-VaR/CVaR portfolio: can be approximated by an LP
+mean-DD portfolio: under max/average DD or CDaR, model is  LP
+关于使用DD的警示 ：
+1.maximum drawdown is extremely sensitive to minute changes in the portfolio weights and to the specifc time period examined
+2.wouldn’t choose weights that minimize historical drawdown,因为会使计算出来的权重失真，而是you might just include terms in your optimization objective that penalize negative skew and penalize positive kurtosis.
+
+

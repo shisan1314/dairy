@@ -1,0 +1,18 @@
+sparse index tracking via MM
+
+
+sparse regression
+
+transformed to
+
+Linear Approximation/Specialized Linear Approximation
+以上都需要MM算法支持
+
+
+holding constraints and extensions
+持仓下界是non-convex constraint，解决方法Penalize violations in the objective，再通过MM转化成convex problem
+
+
+Extension to Other Tracking Error Measures like downside risk
+
+Extension to Other Penalty Functions，除了L2范数以外的惩罚函数

@@ -1,0 +1,8 @@
+凸优化
+often difficult to recognize, many tricks for
+transforming problems into convex form.
+
+如何确定凸函数
+4个判定
+
+
