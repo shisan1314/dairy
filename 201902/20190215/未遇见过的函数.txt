@@ -1,0 +1,2 @@
+where(label>=0.75,1, where(label<=0.25, 0, NaN))
+
