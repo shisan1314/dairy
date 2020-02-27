@@ -1,0 +1,40 @@
+collections 容器模块
+
+from __future__ import引入一些新版本的特性
+
+urllib.urlretrieve直接将远程数据下载到本地
+
+
+
+with zipfile.ZipFile(data_path) as f:
+    text_words = f.read(f.namelist()[0]).lower().split()
+打开一个zip文件并且读取第一个文件
+
+
+collections.Counter(text_words).most_common(max_vocabulary_size - 1)
+Counter类：为hashable对象计数，是字典的子类。
+
+
+np.ndarray(shape=(batch_size), dtype=np.int32)
+可以只设置一维的数组
+
+collections.deque(maxlen=span)
+返回一个新的双向队列对象
+
+
+
+xrange()和range()类似，不过返回的是生成器
+
+
+
+
+# str to bytes
+bytes(s, encoding = "utf8")
+ 
+# bytes to str
+str(b, encoding = "utf-8")
+
+
+
+numpy.empty(shape, dtype=float, order='C')
+Return a new array of given shape and type, without initializing entries.

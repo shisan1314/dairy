@@ -1,0 +1,101 @@
+np.set_printoption(precision=4, suppress=True)#设置浮点数的显示格式
+plt.style.use('ggplot')画图风格样式美化
+
+
+
+def f(a, b, c, d): print(a, b, c, d, sep = '&')
+f(*[1,2,3,4])
+>>>1&2&3&4
+
+f([1,2,3,4])
+>>>TypeError: f() missing 3 required positional arguments: 'b', 'c', and 'd'
+###*被用来解开一个可迭代对象不至于被看做一个参数
+
+
+print("upper bound on error: {:.2e}".format(max_err))
+>>>upper bound on error: 1.32e-08
+如何保留两位小数
+
+
+from scipy.integrate import quad 
+value, max_err = quad(func, *interval)
+求积分
+
+from scipy.integrate import odeint
+x = np.linspace(0, 2*np.pi, 100)
+result = odeint(fx, 0, x)
+求常微分方程的数值解
+
+
+
+
+from scipy.optimize import leastsq
+def f_err(p, y, x):
+    '''定义误差函数'''
+    return y - function(x, *p)
+
+#利用最小二乘法求解，f_err为误差函数，[1,1,1,1]表示初始值
+coef, is_success = leastsq(f_err, [1, 1, 1, 1], args=(y_noisy, x))
+
+#coef为参数估计  is_success的值为1~4之间时表示成功找到了最小二乘解
+coef, is_success  
+
+
+
+
+
+
+资产组合的有效边界求解
+例如我们有四种资产，利用这四种资产构建投资组合
+r = np.array([-0.15, 0.12, 0.31, 0.04])
+cov_mat = np.array([[0.1948,0.1247,0.0868,0.1127],
+                   [0.1247,0.2063,0.1095,0.1176],
+                   [0.0868,0.1095,0.2983,0.1015],
+                   [0.1127,0.1176,0.1015,0.1449]])
+k = len(r)
+为了更好突显有效边界，这里随机构造4000个投资组合
+port_r, port_var = [], []
+for p in range(4000):
+    weights = np.random.random(k)
+    weights /= np.sum(weights)
+    port_r.append(np.sum(r*weights))
+    port_var.append(np.sqrt((weights.T).dot(cov_mat).dot(weights)))
+port_r, port_var = np.array(port_r), np.array(port_var)
+
+import scipy.optimize as sco #求解约束最优化问题
+def statistics(weights):
+
+    weights = np.array(weights)
+    port_returns = np.sum(r*weights)
+    port_variance = np.sqrt((weights.T).dot(cov_mat).dot(weights))
+
+    return np.array([port_returns, port_variance, port_returns/port_variance])
+
+def min_variance(weights):
+    return statistics(weights)[1]
+
+#在不同目标收益率水平（target_returns）循环时，最小化的一个约束条件会变化。
+target_returns = np.linspace(0.0,0.31,70)
+target_variance = []
+for tar in target_returns:
+    bnds = tuple((0,1) for x in range(k))   
+    cons = ({'type':'eq','fun':lambda x:statistics(x)[0]-tar},{'type':'eq','fun':lambda x:np.sum(x)-1})  #这里使用了lambda函数来表示优化问题的约束条件
+risk_free = 0.04
+plt.figure(figsize = (14,8))
+plt.scatter(port_var, port_r, c=(port_r-risk_free)/port_var,  marker = 'o',label='随机投资组合')
+plt.plot(target_variance, target_returns, c = 'red', linewidth=2.3, label='有效边界' )
+plt.grid(True)
+    res = sco.minimize(min_variance, k*[1./k],method = 'SLSQP', bounds = bnds, constraints = cons)
+    target_variance.append(res['fun'])
+target_variance = np.array(target_variance)
+可视化有效边界，可看到随机构造的投资组合都越不过有效边界
+risk_free = 0.04
+plt.figure(figsize = (14,8))
+plt.scatter(port_var, port_r, c=(port_r-risk_free)/port_var,  marker = 'o',label='随机投资组合')
+plt.plot(target_variance, target_returns, c = 'red', linewidth=2.3, label='有效边界' )
+plt.grid(True)
+plt.xlabel('波动率')
+plt.ylabel('期望收益率')
+plt.legend(loc='best')
+plt.colorbar(label = '夏普比率')
+plt.show() 
